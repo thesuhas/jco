@@ -95,7 +95,7 @@ pub fn transpile(component: &[u8], opts: TranspileOpts) -> Result<Transpiled, an
         .context("failed to extract interface information from component")?;
 
     let (resolve, world_id) = match decoded {
-        DecodedWasm::WitPackages(_, _) => bail!("unexpected wit package as input"),
+        DecodedWasm::WitPackage(_, _) => bail!("unexpected wit package as input"),
         DecodedWasm::Component(resolve, world_id) => (resolve, world_id),
     };
 
